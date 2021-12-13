@@ -13,23 +13,25 @@ public class PersonB extends Person {
     @Override
     public void run() {
 
-
-        try {
-            while (true) {
-                while (cestaCuerpo.actual == cestaCuerpo.capacitat ) wait();
-
-                lockMangas.lock();
-
-                cestaCuerpo.posa();
+        while (true) {
+            try {
 
 
-                lockMangas.unlock();
-                Thread.sleep(5000);
+                synchronized (lockMangas) {
+
+                    if (cestaCuerpo.actual != cestaCuerpo.capacitat) {
+                        cestaCuerpo.posa();
+                        Thread.sleep((long) ((Math.random() * 150) + 50));
+                        Thread.sleep(5000);
+                    }
+                }
+
+
+            } catch (
+                    InterruptedException e) {
+                e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
         }
-
-
     }
 }

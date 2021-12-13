@@ -12,25 +12,25 @@ public class PersonA extends Person {
     @Override
     public void run() {
 
-
-        try {
-
-            while (true) {
-
-                while (cestaMangas.actual == cestaMangas.capacitat ) wait();
-
-                lockMangas.lock();
+        while (true) {
 
 
-                cestaMangas.posa();
+            try {
 
 
-                lockMangas.unlock();
-                Thread.sleep(3000);
+                synchronized (lockMangas) {
+                    if (cestaMangas.actual != cestaMangas.capacitat) {
+                        cestaMangas.posa();
+                        Thread.sleep((long) ((Math.random() * 150) + 50));
 
+                    }
+
+                }
+
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

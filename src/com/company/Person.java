@@ -1,14 +1,14 @@
 package com.company;
 
-public class Person extends Thread {
+public class Person implements Runnable {
 
     String a;
     Cesta cestaMangas;
     Cesta cestaCuerpo;
 
 
+    @Override
+    public void run() {
 
-
-
-
+    }
 }

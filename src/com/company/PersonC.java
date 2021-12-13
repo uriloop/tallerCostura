@@ -15,24 +15,30 @@ public class PersonC extends Person {
     @Override
     public void run() {
 
-
+        while(true){
         try {
-            while (true) {
-                while (cestaMangas.actual < 2 || cestaCuerpo.actual < 1) wait();
 
-                lockMangas.lock();
 
-                cestaCuerpo.agafa(1);
-                cestaMangas.agafa(2);
-                jerseis++;
+            synchronized (lockMangas) {
+                if (cestaMangas.actual > 1 && cestaCuerpo.actual > 0) {
+                    cestaCuerpo.agafa(1);
+                    Thread.sleep((long) ((Math.random() * 150) + 50));
 
-                lockMangas.unlock();
-                Thread.sleep(2000);
-                System.out.println("  +1 jersey");
+                    cestaMangas.agafa(2);
+                    Thread.sleep((long) ((Math.random() * 150) + 50));
+                    jerseis++;
+                    System.out.println("  +1 jersey");
+                    Thread.sleep(2000);
+                }
 
             }
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+
+
         }
 
 

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -31,29 +33,30 @@ p.ej.#que#son#dos#constantes#enteras#"NumMaxMangas"#y#"NumMaxCuerpos").  */
 
     public static void main(String[] args) {
 	// write your code here
+        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
 
-
-        Cesta cestaMangas=new Cesta(26, Cesta.tipusCesta.MANGAS);
-        Cesta cestaCuerpo= new Cesta(14, Cesta.tipusCesta.CUERPOS);
+        Cesta cestaMangas=new Cesta(6, Cesta.tipusCesta.MANGAS);
+        Cesta cestaCuerpo= new Cesta(4, Cesta.tipusCesta.CUERPOS);
 
 
         PersonA person1=new PersonA("A",cestaMangas);
         PersonB person2= new PersonB("B",cestaCuerpo);
         PersonC person3=new PersonC("C",cestaMangas,cestaCuerpo);
 
-        person1.start();
-        person2.start();
-        person3.start();
+            executor.execute(person2);
+            executor.execute(person1);
+            executor.execute(person3);
+            executor.shutdown();
 
-        while(true){
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("Porten "+person3.jerseis+" fets");
-            System.out.println("Cesta "+cestaCuerpo.tipus+" Total= "+cestaCuerpo.actual);
-            System.out.println("Cesta "+cestaMangas.tipus+" Total= "+cestaMangas.actual);
-        }
+
+
+
+
+
+
+    }
+
+    private static void extracted(InterruptedException e) {
+        e.printStackTrace();
     }
 }
