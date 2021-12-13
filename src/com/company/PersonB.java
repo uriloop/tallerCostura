@@ -16,17 +16,20 @@ public class PersonB extends Person {
         while (true) {
             try {
 
-
+boolean creat=false;
                 synchronized (lockMangas) {
 
                     if (cestaCuerpo.actual != cestaCuerpo.capacitat) {
                         cestaCuerpo.posa();
                         Thread.sleep((long) ((Math.random() * 150) + 50));
-                        Thread.sleep(5000);
+                        creat=true;
                     }
                 }
 
+                if(creat){
+                    Thread.sleep(2000);
 
+                }
             } catch (
                     InterruptedException e) {
                 e.printStackTrace();
