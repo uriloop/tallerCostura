@@ -22,10 +22,7 @@ public class PersonC extends Person {
             synchronized (lockMangas) {
                 if (cestaMangas.actual > 1 && cestaCuerpo.actual > 0) {
                     cestaCuerpo.agafa(1);
-                    Thread.sleep((long) ((Math.random() * 150) + 50));
-
                     cestaMangas.agafa(2);
-                    Thread.sleep((long) ((Math.random() * 150) + 50));
                     jerseis++;
                     System.out.println("  +1 jersey  Total= "+jerseis);
                     creat=true;
@@ -33,8 +30,12 @@ public class PersonC extends Person {
 
             }
             if(creat){
-                Thread.sleep(2000);
 
+                System.out.println(cestaMangas.toString());
+                System.out.println(cestaCuerpo.toString());
+                System.out.println("Total jerseys "+jerseis);
+
+                Thread.sleep(2000);
             }
 
         } catch (InterruptedException e) {

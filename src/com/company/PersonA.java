@@ -18,12 +18,12 @@ public class PersonA extends Person {
                 synchronized (lockMangas) {
                     if (cestaMangas.actual != cestaMangas.capacitat) {
                         cestaMangas.posa();
-                        Thread.sleep((long) ((Math.random() * 150) + 50));
 
                     }
 
                 }
                 if(creat){
+                    System.out.println(cestaMangas.toString());
                     Thread.sleep(1000);
 
                 }

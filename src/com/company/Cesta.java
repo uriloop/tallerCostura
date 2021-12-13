@@ -6,6 +6,15 @@ public class Cesta {
     int actual;
     boolean lliure;
 
+    @Override
+    public String toString() {
+        return "Cesta{" +
+                "capacitat=" + capacitat +
+                ", actual=" + actual +
+                ", tipus=" + tipus +
+                '}';
+    }
+
     enum tipusCesta {
         MANGAS, CUERPOS
     }

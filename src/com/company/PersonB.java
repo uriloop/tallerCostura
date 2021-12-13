@@ -21,14 +21,13 @@ boolean creat=false;
 
                     if (cestaCuerpo.actual != cestaCuerpo.capacitat) {
                         cestaCuerpo.posa();
-                        Thread.sleep((long) ((Math.random() * 150) + 50));
                         creat=true;
                     }
                 }
 
                 if(creat){
-                    Thread.sleep(2000);
-
+                    System.out.println(cestaCuerpo.toString());
+                    Thread.sleep(3000);
                 }
             } catch (
                     InterruptedException e) {
