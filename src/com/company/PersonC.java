@@ -22,11 +22,9 @@ public class PersonC extends Person {
 
                 lockMangas.lock();
 
-
                 cestaCuerpo.agafa(1);
                 cestaMangas.agafa(2);
                 jerseis++;
-
 
                 lockMangas.unlock();
                 Thread.sleep(2000);

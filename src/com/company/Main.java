@@ -52,6 +52,8 @@ p.ej.#que#son#dos#constantes#enteras#"NumMaxMangas"#y#"NumMaxCuerpos").  */
                 e.printStackTrace();
             }
             System.out.println("Porten "+person3.jerseis+" fets");
+            System.out.println("Cesta "+cestaCuerpo.tipus+" Total= "+cestaCuerpo.actual);
+            System.out.println("Cesta "+cestaMangas.tipus+" Total= "+cestaMangas.actual);
         }
     }
 }
